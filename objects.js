@@ -50,7 +50,18 @@
  * @param {number} amountOfSunNeeded - 0 to 10, representing the amount of sun needed
  */
 function createPlant(type, isPerennial, leafDescription, leafColor, flowerColor, flowerDescription, gallonsWaterPerWeek, amountOfSunNeeded) {
-    let plant = {};
+    let plant = {
+        type: [ "rose", "orchid", "lily", "lavender", "poppy", "begonia", "snapdragon", "marigold"]
+        isPerennial: "true"
+        leafDescription: "green", "big", "brown", "small"
+        leafColor: [ "light green", "pointy", "delicate ]
+        flowerColor: [ "pink", "red", "yellow", "white", "orange", "violet" ]
+        flowerDescription: 
+        gallonsWaterPerWeek:
+        amountOfSunNeeded:
+    };
+  
+
     // Your Code Here!
     // Create a plant object, populate it with all of the values from the arguments, and return it.
     // Hint: You can name every key in your object the same as the variable from the argument to this function.  
