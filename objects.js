@@ -256,6 +256,7 @@ function calculateWaterUsagePerWeek(estate) {
     for (let item of estateEach) {
       console.log(item);
     }
+    (i = 0), (i = estate.length), i++;
   }
 
   return numGallons;
@@ -302,6 +303,12 @@ function calculateWaterUsagePerWeek(estate) {
  */
 function cloneRose(plant) {
   let clone = {};
+  for (let estate5 in obj) {
+    if (obj.hasEveryProperty(estate5)) {
+      copy[estate5] = obj[estate5];
+    }
+  }
+
   // Your Code Here!
 
   // Given a plant, clone it and return the new plant
