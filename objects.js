@@ -247,20 +247,66 @@ function describeEstate(estate) {
  * Make a loop for each garden to tally the number of gallons needed by all the plants, then
  * add those up to get the total water usage.
  */
-function calculateWaterUsagePerWeek(estate) {
+let estate = {
+  roseArbor: [
+    {
+      type: "rose",
+      IsPerennial: true,
+      leafDescription: "rounded with a point",
+      leafColor: "green",
+      flowerColor: "red",
+      flowerDescription: "concentric circles of pedals",
+      gallonsWaterPerWeek: 0.8,
+      amountOfSunNeeded: 4,
+    },
+  ],
+
+  perennialGarden: [],
+  slopePlanters: [],
+};
+
+function calculateWaterUsagePerWeek(garden) {
   let numGallons = 0;
 
-  // Your Code Here!
-  for (let key in estate) {
-    let estateEach = estate[key];
-    for (let item of estateEach) {
-      console.log(item);
-    }
-    (i = 0), (i = estate.length), i++;
+  for (let i = 0; i < estate.roseArbor.length; i++) {
+    let plant = estate.roseArbor[i];
+    numGallons += plant.gallonsWaterPerWeek;
+  }
+
+  for (let i = 0; i < estate.perennialGarden.length; i++) {
+    let plant = estate.perennialGarden[i];
+    numGallons += plant.gallonsWaterPerWeek;
+  }
+
+  for (let i = 0; i < estate.slopePlanters.length; i++) {
+    let plant = estate.slopePlanters[i];
+    numGallons += plant.gallonsWaterPerWeek;
   }
 
   return numGallons;
 }
+
+// function calculateWaterUsagePerWeek(estate) {
+//   let numGallons =
+//     calculateWaterUsagePerWeek(estate.roseArbor) +
+//     calculateWaterUsagePerWeek(estate.perennialGarden) +
+//     calculateWaterUsagePerWeek(estate.slopePlanters);
+// }
+
+// let gardens = Object.keys(estate);
+// for (let i=0;)
+
+// for (let i=0; i < estate.roseArbor.length; i++)
+//   let plant = estate.roseArbor[i];
+//   numGallons += plant.gallonsWaterPerWeek;
+
+// for (let i=0; i < estate.perennialGarden.length; i++)
+//   let plant = estate.perennialGarden[i];
+//   numGallons += plant.gallonsWaterPerWeek;
+
+// for (let i=0; i < estate.slopePlanters.length; i++)
+//   let plant = estate.slopePlanters[i];
+//   numGallons += plant.gallonsWaterPerWeek;
 
 // let estate4 = createEstate();
 // console.log("* Empty Estate");
@@ -301,22 +347,18 @@ function calculateWaterUsagePerWeek(estate) {
  * This will use the botanist's special algorithm to make new colors of roses.
  *
  */
+
 function cloneRose(plant) {
   let clone = {};
-  for (let estate5 in obj) {
-    if (obj.hasEveryProperty(estate5)) {
-      copy[estate5] = obj[estate5];
-    }
-  }
-
   // Your Code Here!
 
   // Given a plant, clone it and return the new plant
   // Hint: You do this in the Reading!  copyObject...
+  Object.assign(clone, plant);
 
+  changeColorOfPlant(clone);
   return clone;
 }
-
 //
 // DO NOT CHANGE ANYTHING IN THIS
 /**
@@ -368,13 +410,25 @@ function changeColorOfPlant(plant) {
  * Just watch out for flawed plants!  Don't attempt to clone flawed plants.
  * Otherwise you will produce flowerless roses.
  */
+
 function cloneAllTheRosesAndChangeTheirColors(estate) {
-  // Your Code Here!
-  // for each rose...
-  // Hint: Watch out for modifying an array you are currently looping through!  How can you avoid that?
-  // Instead of putting the new plants immediately into the rose arbor, maybe store them in a new array
-  // until you have finished iterating.  Then you can add them in after your loop finishes.
+  let newFlower = [];
+
+  for (let i = 0; i < estate.roseArbor.length; i++) {
+    let rose = estate.roseArbor[i];
+
+    let clone = cloneRose(rose);
+    newFlower.push(clone);
+  }
+
+  estate.roseArbor + newFlower;
 }
+
+// Your Code Here!
+// for each rose...
+// Hint: Watch out for modifying an array you are currently looping through!  How can you avoid that?
+// Instead of putting the new plants immediately into the rose arbor, maybe store them in a new array
+// until you have finished iterating.  Then you can add them in after your loop finishes.
 
 /* 
    -------TESTS---------------------------------------------------------------
